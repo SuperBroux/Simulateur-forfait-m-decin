@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulateur de Forfait Médecin Traitant</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Simulateur de Forfait Médecin Traitant</h1>
+        <form id="simulateur-form">
+            <fieldset>
+                <legend>Patients non ALD et non C2S</legend>
+                <div class="form-group">
+                    <label for="non-ald-c2s-moins-7">Nombre de patients de moins de 7 ans:</label>
+                    <input type="number" id="non-ald-c2s-moins-7" name="non-ald-c2s-moins-7" required>
+                </div>
+                <div class="form-group">
+                    <label for="non-ald-c2s-7-74">Nombre de patients entre 7 et 74 ans:</label>
+                    <input type="number" id="non-ald-c2s-7-74" name="non-ald-c2s-7-74" required>
+                </div>
+                <div class="form-group">
+                    <label for="non-ald-c2s-75-79">Nombre de patients entre 75 et 79 ans:</label>
+                    <input type="number" id="non-ald-c2s-75-79" name="non-ald-c2s-75-79" required>
+                </div>
+                <div class="form-group">
+                    <label for="non-ald-c2s-80-plus">Nombre de patients de 80 ans et plus:</label>
+                    <input type="number" id="non-ald-c2s-80-plus" name="non-ald-c2s-80-plus" required>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Patients en ALD et non C2S</legend>
+                <div class="form-group">
+                    <label for="ald-non-c2s-moins-80">Nombre de patients de moins de 80 ans:</label>
+                    <input type="number" id="ald-non-c2s-moins-80" name="ald-non-c2s-moins-80" required>
+                </div>
+                <div class="form-group">
+                    <label for="ald-non-c2s-80-plus">Nombre de patients de 80 ans et plus:</label>
+                    <input type="number" id="ald-non-c2s-80-plus" name="ald-non-c2s-80-plus" required>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Patients non ALD et C2S</legend>
+                <div class="form-group">
+                    <label for="non-ald-c2s-c2s-moins-7">Nombre de patients de moins de 7 ans:</label>
+                    <input type="number" id="non-ald-c2s-c2s-moins-7" name="non-ald-c2s-c2s-moins-7" required>
+                </div>
+                <div class="form-group">
+                    <label for="non-ald-c2s-c2s-7-74">Nombre de patients entre 7 et 74 ans:</label>
+                    <input type="number" id="non-ald-c2s-c2s-7-74" name="non-ald-c2s-c2s-7-74" required>
+                </div>
+                <div class="form-group">
+                    <label for="non-ald-c2s-c2s-75-79">Nombre de patients entre 75 et 79 ans:</label>
+                    <input type="number" id="non-ald-c2s-c2s-75-79" name="non-ald-c2s-c2s-75-79" required>
+                </div>
+                <div class="form-group">
+                    <label for="non-ald-c2s-c2s-80-plus">Nombre de patients de 80 ans et plus:</label>
+                    <input type="number" id="non-ald-c2s-c2s-80-plus" name="non-ald-c2s-c2s-80-plus" required>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Patients en ALD et C2S</legend>
+                <div class="form-group">
+                    <label for="ald-c2s-moins-80">Nombre de patients de moins de 80 ans:</label>
+                    <input type="number" id="ald-c2s-moins-80" name="ald-c2s-moins-80" required>
+                </div>
+                <div class="form-group">
+                    <label for="ald-c2s-80-plus">Nombre de patients de 80 ans et plus:</label>
+                    <input type="number" id="ald-c2s-80-plus" name="ald-c2s-80-plus" required>
+                </div>
+            </fieldset>
+
+            <div class="form-group">
+                <label for="zone-zip">Exercez-vous en zone ZIP ?</label>
+                <select id="zone-zip" name="zone-zip" required>
+                    <option value="non">Non</option>
+                    <option value="oui">Oui</option>
+                </select>
+            </div>
+            <div class="form-group" id="premiere-installation-group" style="display: none;">
+                <label for="premiere-installation">Est-ce votre première installation ?</label>
+                <select id="premiere-installation" name="premiere-installation">
+                    <option value="non">Non</option>
+                    <option value="oui">Oui</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="age-medecin">Âge du médecin au 31 décembre de l'année précédente:</label>
+                <input type="number" id="age-medecin" name="age-medecin" required>
+            </div>
+
+            <div class="form-group">
+                <label for="patients-non-vus">Nombre de patients non vus ces deux dernières années:</label>
+                <input type="number" id="patients-non-vus" name="patients-non-vus" required>
+            </div>
+
+            <button type="button" onclick="calculerForfait()">Calculer</button>
+        </form>
+        <div id="resultat" class="result"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
